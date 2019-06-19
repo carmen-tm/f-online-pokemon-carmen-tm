@@ -10,12 +10,15 @@ const PokeList = props => {
 		<div>
 			{isFetching ? (
 				<main>
-					<Spinner animation="grow" variant="success" />
-					<Spinner animation="grow" variant="danger" />
-					<Spinner animation="grow" variant="warning" />
-					<Spinner animation="grow" variant="info" />
-					<Spinner animation="grow" variant="light" />
-					<Spinner animation="grow" variant="dark" />
+					<Spinner animation="border" variant="danger" role="status">
+						<span className="sr-only">Loading...</span>
+					</Spinner>
+					<Spinner animation="border" variant="info" role="status">
+						<span className="sr-only">Loading...</span>
+					</Spinner>
+					<Spinner animation="border" variant="warning" role="status">
+						<span className="sr-only">Loading...</span>
+					</Spinner>
 				</main>
 			) : (
 				<div>
@@ -30,6 +33,7 @@ const PokeList = props => {
 										name={pokemon.name}
 										sprites={pokemon.sprites}
 										types={pokemon.types}
+										pokemonLength={pokemonsData.length}
 									/>
 								</li>
 							);
