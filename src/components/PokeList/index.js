@@ -5,7 +5,7 @@ import { Spinner } from 'react-bootstrap';
 import './styles.scss';
 
 const PokeList = props => {
-	const { pokemonsData, isFetching } = props;
+	const { pokemonsData, isFetching, nameValue } = props;
 	return (
 		<div>
 			{isFetching ? (
@@ -24,20 +24,26 @@ const PokeList = props => {
 				<main>
 					<h2>PokeList</h2>
 					<ul className="pokeList">
-						{pokemonsData.map(pokemon => {
-							return (
-								<li key={pokemon.id}>
-									{' '}
-									<PokeCard
-										id={pokemon.id}
-										name={pokemon.name}
-										sprites={pokemon.sprites}
-										types={pokemon.types}
-										pokemonLength={pokemonsData.length}
-									/>
-								</li>
-							);
-						})}
+						{pokemonsData
+							.filter(pokemon => {
+								return nameValue
+									? pokemon.name.toUpperCase().includes(nameValue.toUpperCase())
+									: true;
+							})
+							.map(pokemon => {
+								return (
+									<li key={pokemon.id}>
+										{' '}
+										<PokeCard
+											id={pokemon.id}
+											name={pokemon.name}
+											sprites={pokemon.sprites}
+											types={pokemon.types}
+											pokemonLength={pokemonsData.length}
+										/>
+									</li>
+								);
+							})}
 					</ul>
 				</main>
 			)}

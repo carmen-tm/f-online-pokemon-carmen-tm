@@ -43,9 +43,7 @@ class App extends React.Component {
 	handlerInputName(e) {
 		const { currentTarget } = e;
 		let { value } = currentTarget;
-		console.log(value);
-
-		// Using prevState in case we have more filters in the future
+		// Using prevState in case having more filters in the future
 		this.setState(prevState => {
 			return {
 				filters: {

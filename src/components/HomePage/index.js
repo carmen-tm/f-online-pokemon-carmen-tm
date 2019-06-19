@@ -10,7 +10,11 @@ const HomePage = props => {
 		<div>
 			<h1>Pokedesk</h1>
 			<FiltersList handlerInputName={handlerInputName} nameValue={nameValue} />
-			<PokeList isFetching={isFetching} pokemonsData={pokemonsData} />
+			<PokeList
+				isFetching={isFetching}
+				pokemonsData={pokemonsData}
+				nameValue={nameValue}
+			/>
 		</div>
 	);
 };
