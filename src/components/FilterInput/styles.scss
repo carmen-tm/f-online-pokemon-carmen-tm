@@ -1,0 +1,18 @@
+.visually-hidden {
+	// takes the element out of flow
+	position: absolute;
+	// Using a size of 1px by 1px ensures the element it still there and will be read out by screen readers
+	width: 1px;
+	height: 1px;
+
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip: rect(1px 1px 1px 1px); /* for IE6, IE7 */
+
+	//To keep the label focusable for screen readerss
+	&:focus {
+		position: static;
+		width: auto;
+		height: auto;
+	}
+}
