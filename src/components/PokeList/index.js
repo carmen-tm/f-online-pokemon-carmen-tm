@@ -1,5 +1,6 @@
 import React from 'react';
 import PokeCard from '../PokeCard';
+import { Spinner } from 'react-bootstrap';
 
 import './styles.scss';
 
@@ -8,7 +9,14 @@ const PokeList = props => {
 	return (
 		<div>
 			{isFetching ? (
-				<p>Loading....</p>
+				<main>
+					<Spinner animation="grow" variant="success" />
+					<Spinner animation="grow" variant="danger" />
+					<Spinner animation="grow" variant="warning" />
+					<Spinner animation="grow" variant="info" />
+					<Spinner animation="grow" variant="light" />
+					<Spinner animation="grow" variant="dark" />
+				</main>
 			) : (
 				<div>
 					<h2>PokeList</h2>
