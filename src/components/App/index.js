@@ -30,7 +30,9 @@ class App extends React.Component {
 					this.setState(prevState => {
 						return {
 							data: {
-								pokemonsData: prevState.data.pokemonsData.concat(response),
+								pokemonsData: prevState.data.pokemonsData
+									.sort((a, b) => a.id - b.id)
+									.concat(response),
 								isFetching: false
 							}
 						};
