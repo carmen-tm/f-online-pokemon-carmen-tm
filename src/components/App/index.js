@@ -17,6 +17,9 @@ class App extends React.Component {
 				nameValue: ''
 			}
 		};
+
+		//Binding all my methods:
+		this.handlerInputName = this.handlerInputName.bind(this);
 	}
 
 	componentDidMount() {
@@ -39,8 +42,18 @@ class App extends React.Component {
 
 	handlerInputName(e) {
 		const { currentTarget } = e;
-		const myValue = currentTarget.value;
-		console.log(myValue);
+		let { value } = currentTarget;
+		console.log(value);
+
+		// Using prevState in case we have more filters in the future
+		this.setState(prevState => {
+			return {
+				filters: {
+					...prevState.filters,
+					nameValue: value
+				}
+			};
+		});
 	}
 
 	render() {

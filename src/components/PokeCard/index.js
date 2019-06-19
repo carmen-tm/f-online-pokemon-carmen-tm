@@ -10,9 +10,6 @@ const PokeCard = props => {
 			bg="warning"
 			text="white"
 			style={{ width: '16rem', height: '16rem', margin: '5px' }}
-			// className="shadow-box-example z-depth-5"
-			// class="shadow p-3 mb-5 bg-white rounded"
-			// class="shadow-lg p-3 mb-5 bg-white rounded"
 		>
 			<Card.Img variant="top" src={sprites.front_default} alt={name} />
 			<Card.Body>
@@ -27,17 +24,6 @@ const PokeCard = props => {
 				</ul>
 			</Card.Body>
 		</Card>
-
-		// <div>
-		// 	<p>{id}</p>
-		// 	<h3>{name}</h3>
-		// 	<img src={sprites.front_default} alt={name} />
-		// 	<ul>
-		// 		{types.map((type, index) => {
-		// 			return <li key={index}>{type.type.name}</li>;
-		// 		})}
-		// 	</ul>
-		// </div>
 	);
 };
 
