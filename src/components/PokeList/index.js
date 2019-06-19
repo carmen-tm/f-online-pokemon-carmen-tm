@@ -21,9 +21,9 @@ const PokeList = props => {
 					</Spinner>
 				</main>
 			) : (
-				<div>
+				<main>
 					<h2>PokeList</h2>
-					<ul>
+					<ul className="pokeList">
 						{pokemonsData.map(pokemon => {
 							return (
 								<li key={pokemon.id}>
@@ -39,7 +39,7 @@ const PokeList = props => {
 							);
 						})}
 					</ul>
-				</div>
+				</main>
 			)}
 		</div>
 	);

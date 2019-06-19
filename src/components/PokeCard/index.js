@@ -9,7 +9,7 @@ const PokeCard = props => {
 		<Card
 			bg="warning"
 			text="white"
-			style={{ width: '16rem' }}
+			style={{ width: '16rem', height: '16rem', margin: '5px' }}
 			// className="shadow-box-example z-depth-5"
 			// class="shadow p-3 mb-5 bg-white rounded"
 			// class="shadow-lg p-3 mb-5 bg-white rounded"

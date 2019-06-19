@@ -4,10 +4,16 @@ import './styles.scss';
 import FilterInput from '../FilterInput';
 
 const FiltersList = props => {
+	const { handlerInputName, nameValue } = props;
 	return (
-		<div>
-			<FilterInput />
-		</div>
+		<section>
+			<FilterInput
+				type="text"
+				placeholder="Pokemon name"
+				handlerInputName={handlerInputName}
+				nameValue={nameValue}
+			/>
+		</section>
 	);
 };
 
