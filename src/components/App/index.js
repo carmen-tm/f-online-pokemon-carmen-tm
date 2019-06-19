@@ -25,18 +25,16 @@ class App extends React.Component {
 	componentDidMount() {
 		fetchPokeList().then(data => {
 			const pokeListUrls = data.results;
-			pokeListUrls.map(pokemon => {
-				return fetchPokeDetail(pokemon.url).then(response => {
-					this.setState(prevState => {
-						return {
-							data: {
-								pokemonsData: prevState.data.pokemonsData
-									.sort((a, b) => a.id - b.id)
-									.concat(response),
-								isFetching: false
-							}
-						};
-					});
+
+			//Improvement with PromiseAll(arrayOfPromises)
+			const pokeponPromisesArr = pokeListUrls.map(pokemon =>
+				fetchPokeDetail(pokemon.url)
+			);
+			Promise.all(pokeponPromisesArr).then(responses => {
+				this.setState({
+					data: {
+						pokemonsData: responses.sort((a, b) => a.id - b.id)
+					}
 				});
 			});
 		});
