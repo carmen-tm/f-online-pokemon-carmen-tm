@@ -5,11 +5,12 @@ import PokeList from '../PokeList';
 import './styles.scss';
 
 const HomePage = props => {
+	const { pokemonsData, isFetching } = props;
 	return (
 		<div>
 			<p>HomePage</p>
 			<FiltersList />
-			<PokeList />
+			<PokeList isFetching={isFetching} pokemonsData={pokemonsData} />
 		</div>
 	);
 };

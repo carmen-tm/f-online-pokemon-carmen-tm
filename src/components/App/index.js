@@ -37,10 +37,10 @@ class App extends React.Component {
 	}
 
 	render() {
+		const { pokemonsData, isFetching } = this.state.data;
 		return (
 			<div className="App">
-				<p>App</p>
-				<HomePage />
+				<HomePage isFetching={isFetching} pokemonsData={pokemonsData} />
 			</div>
 		);
 	}
