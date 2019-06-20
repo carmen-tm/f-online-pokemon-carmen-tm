@@ -1,6 +1,9 @@
 import React from 'react';
 import HomePage from '../HomePage';
+import PokemonDetailPage from '../PokemonDetailPage';
+
 import { fetchPokeList, fetchPokeDetail } from '../../services/API-call';
+import { Route, Switch } from 'react-router-dom';
 
 import './styles.scss';
 
@@ -58,12 +61,26 @@ class App extends React.Component {
 		const { pokemonsData, isFetching } = this.state.data;
 		const { nameValue } = this.state.filters;
 		return (
-			<HomePage
-				isFetching={isFetching}
-				pokemonsData={pokemonsData}
-				handlerInputName={this.handlerInputName}
-				nameValue={nameValue}
-			/>
+			<Switch>
+				<Route
+					exact
+					path="/"
+					render={() => {
+						return (
+							<HomePage
+								isFetching={isFetching}
+								pokemonsData={pokemonsData}
+								handlerInputName={this.handlerInputName}
+								nameValue={nameValue}
+							/>
+						);
+					}}
+				/>
+				<Route
+					path="/pokemon-detail/:pokemonId"
+					render={routerProps => <PokemonDetailPage />}
+				/>
+			</Switch>
 		);
 	}
 }
