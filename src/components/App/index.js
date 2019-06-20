@@ -1,9 +1,13 @@
 import React from 'react';
 import HomePage from '../HomePage';
 import PokemonDetailPage from '../PokemonDetailPage';
-
-import { fetchPokeList, fetchPokeDetail } from '../../services/API-call';
 import { Route, Switch } from 'react-router-dom';
+
+import {
+	fetchPokeList,
+	fetchPokeDetail,
+	fetchPokeEvolChain
+} from '../../services/API-call';
 
 import './styles.scss';
 
@@ -26,20 +30,27 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
+		//First fetch
 		fetchPokeList().then(data => {
 			const pokeListUrls = data.results;
 
-			//Improvement with PromiseAll(arrayOfPromises)
-			const pokeponPromisesArr = pokeListUrls.map(pokemon =>
+			//Second fetch. Improved with PromiseAll(arrayOfPromises)
+			const pokePromisesArr = pokeListUrls.map(pokemon =>
 				fetchPokeDetail(pokemon.url)
 			);
-			Promise.all(pokeponPromisesArr).then(responses => {
+
+			Promise.all(pokePromisesArr).then(responses => {
 				this.setState({
 					data: {
 						pokemonsData: responses.sort((a, b) => a.id - b.id)
 					}
 				});
 			});
+
+			//Third fetch.
+			//Example with pokemon "Ratata";
+			const idExample = 7;
+			fetchPokeEvolChain(idExample).then(response => console.log(response));
 		});
 	}
 
