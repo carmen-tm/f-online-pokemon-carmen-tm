@@ -26,7 +26,7 @@ const PokeList = props => {
 						{pokemonsData
 							.filter(pokemon => {
 								return nameValue
-									? pokemon.name.toUpperCase().includes(nameValue.toUpperCase)
+									? pokemon.name.toUpperCase().includes(nameValue.toUpperCase())
 									: true;
 							})
 							.map(pokemon => {
