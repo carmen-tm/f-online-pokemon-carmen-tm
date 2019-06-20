@@ -50,7 +50,24 @@ class App extends React.Component {
 			//Third fetch.
 			//Example with pokemon "Ratata";
 			const idExample = 7;
-			fetchPokeEvolChain(idExample).then(response => console.log(response));
+			const nameExample = 'raticate';
+			fetchPokeEvolChain(idExample)
+				.then(response => {
+					console.log(response);
+					const pokeEvolvesTo = response.chain.evolves_to[0].species.name;
+					console.log(pokeEvolvesTo);
+
+					// return pokeEvolvesTo === nameExample ? pokeEvolvesTo : '';
+					if (pokeEvolvesTo === nameExample) {
+						const evolutionedFrom = response.chain.species.name;
+						return evolutionedFrom;
+					} else {
+						console.log('noppp');
+					}
+				})
+				.then(data =>
+					console.log(`Soy el item ${nameExample} y evoluciono de ${data}`)
+				);
 		});
 	}
 
