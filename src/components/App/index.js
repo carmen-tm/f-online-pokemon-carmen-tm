@@ -33,6 +33,7 @@ class App extends React.Component {
 		//First fetch
 		fetchPokeList().then(data => {
 			const pokeListUrls = data.results;
+			console.log(pokeListUrls.length);
 
 			//Second fetch. Improved with PromiseAll(arrayOfPromises)
 			const pokePromisesArr = pokeListUrls.map(pokemon =>
@@ -48,7 +49,7 @@ class App extends React.Component {
 			});
 
 			//Third fetch.
-			//Example with pokemon "Ratata";
+			//Example with pokemon "raticate";
 			const idExample = 7;
 			const nameExample = 'raticate';
 			fetchPokeEvolChain(idExample)
@@ -57,7 +58,6 @@ class App extends React.Component {
 					const pokeEvolvesTo = response.chain.evolves_to[0].species.name;
 					console.log(pokeEvolvesTo);
 
-					// return pokeEvolvesTo === nameExample ? pokeEvolvesTo : '';
 					if (pokeEvolvesTo === nameExample) {
 						const evolutionedFrom = response.chain.species.name;
 						return evolutionedFrom;
@@ -69,6 +69,28 @@ class App extends React.Component {
 					console.log(`Soy el item ${nameExample} y evoluciono de ${data}`)
 				);
 		});
+
+		// 	//Third fetch.
+		// 	//Example with pokemon "raticate";
+		// 	const idExample = 7;
+		// 	const nameExample = 'raticate';
+		// 	fetchPokeEvolChain(idExample)
+		// 		.then(response => {
+		// 			console.log(response);
+		// 			const pokeEvolvesTo = response.chain.evolves_to[0].species.name;
+		// 			console.log(pokeEvolvesTo);
+
+		// 			if (pokeEvolvesTo === nameExample) {
+		// 				const evolutionedFrom = response.chain.species.name;
+		// 				return evolutionedFrom;
+		// 			} else {
+		// 				console.log('noppp');
+		// 			}
+		// 		})
+		// 		.then(data =>
+		// 			console.log(`Soy el item ${nameExample} y evoluciono de ${data}`)
+		// 		);
+		// });
 	}
 
 	handlerInputName(e) {
