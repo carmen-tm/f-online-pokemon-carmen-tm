@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import {
 	fetchPokeList,
 	fetchPokeDetail,
-	fetchPokeEvolChain
+	fetchPokeSpecies
 } from '../../services/API-call';
 
 import './styles.scss';
@@ -50,47 +50,18 @@ class App extends React.Component {
 
 			//Third fetch.
 			//Example with pokemon "raticate";
-			const idExample = 7;
-			const nameExample = 'raticate';
-			fetchPokeEvolChain(idExample)
-				.then(response => {
-					console.log(response);
-					const pokeEvolvesTo = response.chain.evolves_to[0].species.name;
-					console.log(pokeEvolvesTo);
-
-					if (pokeEvolvesTo === nameExample) {
-						const evolutionedFrom = response.chain.species.name;
-						return evolutionedFrom;
-					} else {
-						console.log('noppp');
-					}
-				})
-				.then(data =>
-					console.log(`Soy el item ${nameExample} y evoluciono de ${data}`)
+			const idExample = 20;
+			fetchPokeSpecies(idExample).then(response => {
+				console.log(response);
+				const verificationName = response.name;
+				console.log(verificationName);
+				const pokeEvolvesFrom = response.evolves_from_species.name;
+				console.log(pokeEvolvesFrom);
+				console.log(
+					`Soy el item ${idExample}. Mi nombre es ${verificationName} y evoluciono de ${pokeEvolvesFrom}`
 				);
+			});
 		});
-
-		// 	//Third fetch.
-		// 	//Example with pokemon "raticate";
-		// 	const idExample = 7;
-		// 	const nameExample = 'raticate';
-		// 	fetchPokeEvolChain(idExample)
-		// 		.then(response => {
-		// 			console.log(response);
-		// 			const pokeEvolvesTo = response.chain.evolves_to[0].species.name;
-		// 			console.log(pokeEvolvesTo);
-
-		// 			if (pokeEvolvesTo === nameExample) {
-		// 				const evolutionedFrom = response.chain.species.name;
-		// 				return evolutionedFrom;
-		// 			} else {
-		// 				console.log('noppp');
-		// 			}
-		// 		})
-		// 		.then(data =>
-		// 			console.log(`Soy el item ${nameExample} y evoluciono de ${data}`)
-		// 		);
-		// });
 	}
 
 	handlerInputName(e) {

@@ -17,11 +17,11 @@ const fetchPokeDetail = pokeURL => {
 	return fetch(pokeURL).then(response => response.json());
 };
 
-const evolChainURL = 'https://pokeapi.co/api/v2/evolution-chain/';
-
 //Third fetch
-const fetchPokeEvolChain = pokeId => {
-	return fetch(`${evolChainURL}${pokeId}`).then(response => response.json());
+const pokeSpeciesURL = 'https://pokeapi.co/api/v2/pokemon-species/';
+
+const fetchPokeSpecies = pokeId => {
+	return fetch(`${pokeSpeciesURL}${pokeId}`).then(response => response.json());
 };
 
-export { fetchPokeList, fetchPokeDetail, fetchPokeEvolChain };
+export { fetchPokeList, fetchPokeDetail, fetchPokeSpecies };
