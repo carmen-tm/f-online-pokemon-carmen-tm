@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import './styles.scss';
 
 const PokeCard = props => {
-	const { id, name, sprites, types, pokemonLength } = props;
+	const { id, name, sprites, types, pokemonLength, evolvesFrom } = props;
 	return (
 		<Card
 			bg="warning"
@@ -17,6 +17,8 @@ const PokeCard = props => {
 				<Card.Text>
 					ID {id}/{pokemonLength}
 				</Card.Text>
+				{evolvesFrom ? <Card.Text>evolves from...{evolvesFrom}</Card.Text> : ''}
+
 				<ul>
 					{types.map((type, index) => {
 						return <li key={index}>{type.type.name}</li>;

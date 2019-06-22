@@ -38,6 +38,7 @@ const PokeList = props => {
 											name={pokemon.name}
 											sprites={pokemon.sprites}
 											types={pokemon.types}
+											evolvesFrom={pokemon.evolvesFrom}
 											pokemonLength={pokemonsData.length}
 										/>
 									</li>

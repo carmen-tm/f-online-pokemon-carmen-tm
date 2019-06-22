@@ -25,7 +25,6 @@ class App extends React.Component {
 			}
 		};
 
-		//Binding all my methods:
 		this.handlerInputName = this.handlerInputName.bind(this);
 	}
 
@@ -35,14 +34,15 @@ class App extends React.Component {
 			const pokeListUrls = data.results;
 			console.log(pokeListUrls.length);
 
-			//Second fetch.
 			const pokePromisesArr = pokeListUrls.map(pokemon => {
 				let thisPokemonInfo = {};
 
-				//Third fetch.
+				//Second fetch.
 				return fetchPokeDetail(pokemon.url)
 					.then(response => {
 						thisPokemonInfo = response;
+
+						//Third fetch.
 						return fetchPokeSpecies(response.id);
 					})
 					.then(response => {
