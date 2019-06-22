@@ -102,7 +102,9 @@ class App extends React.Component {
 				/>
 				<Route
 					path="/pokemon-detail/:pokemonId"
-					render={routerProps => <PokemonDetailPage />}
+					render={routerProps => (
+						<PokemonDetailPage match={routerProps.match} />
+					)}
 				/>
 			</Switch>
 		);
