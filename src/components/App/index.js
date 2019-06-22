@@ -35,31 +35,34 @@ class App extends React.Component {
 			const pokeListUrls = data.results;
 			console.log(pokeListUrls.length);
 
-			//Second fetch. Improved with PromiseAll(arrayOfPromises)
-			const pokePromisesArr = pokeListUrls.map(pokemon =>
-				fetchPokeDetail(pokemon.url)
-			);
+			//Second fetch.
+			const pokePromisesArr = pokeListUrls.map(pokemon => {
+				let thisPokemonInfo = {};
+
+				//Third fetch.
+				return fetchPokeDetail(pokemon.url)
+					.then(response => {
+						thisPokemonInfo = response;
+						return fetchPokeSpecies(response.id);
+					})
+					.then(response => {
+						const pokeHasEvolution = response.evolves_from_species;
+
+						pokeHasEvolution
+							? (thisPokemonInfo.evolvesFrom = pokeHasEvolution.name)
+							: (thisPokemonInfo.evolvesFrom = '');
+
+						return thisPokemonInfo;
+					});
+			});
 
 			Promise.all(pokePromisesArr).then(responses => {
 				this.setState({
 					data: {
-						pokemonsData: responses.sort((a, b) => a.id - b.id)
+						pokemonsData: responses.sort((a, b) => a.id - b.id),
+						isFetching: false
 					}
 				});
-			});
-
-			//Third fetch.
-			//Example with pokemon "raticate";
-			const idExample = 20;
-			fetchPokeSpecies(idExample).then(response => {
-				console.log(response);
-				const verificationName = response.name;
-				console.log(verificationName);
-				const pokeEvolvesFrom = response.evolves_from_species.name;
-				console.log(pokeEvolvesFrom);
-				console.log(
-					`Soy el item ${idExample}. Mi nombre es ${verificationName} y evoluciono de ${pokeEvolvesFrom}`
-				);
 			});
 		});
 	}
