@@ -1,15 +1,54 @@
-//Transforming bootstrap styles
-.card-img-top {
-	margin: 0 auto;
-	width: 40%;
+.pokemon-card {
+	background-image: linear-gradient(
+		to bottom,
+		#eaedf6,
+		#cedcee,
+		#accee3,
+		#689cad
+	);
+
+	color: #213941;
+
+	padding: 5px;
+	text-align: center;
+
+	width: 15rem;
+	height: 15rem;
+	margin: 10px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-transform: capitalize;
+
+	box-shadow: -7px 12px 0px 2px #eaedf6;
+
+	//Animation not working
+	// animation: morph 10s linear infinite alternate,
+	// 	spin 26s linear infinite reverse;
+	// animation-duration: 10s, 26s;
+	// animation-timing-function: linear, linear;
+	// animation-delay: 0s, 0s;
+	// animation-iteration-count: infinite, infinite;
+	// animation-direction: alternate, reverse;
+	// animation-fill-mode: none, none;
+	// animation-play-state: running, running;
+	// animation-name: morph, spin;
+
+	cursor: pointer;
 }
 
-// .shadow-box-example {
-// 	height: 120px;
-// 	width: 100%;
-// }
+.pokemon-type__item {
+	background-color: white;
+	color: #213941;
+	padding: 5px;
+	margin: 10px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 9px;
+}
 
-// .shadow-box-example {
-// 	height: 120px;
-// 	width: 100%;
-// }
+.pokemon-title {
+	font-size: 18px;
+}

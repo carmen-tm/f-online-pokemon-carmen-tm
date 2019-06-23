@@ -1,37 +1,58 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import './styles.scss';
+
+function getRandomArbitrary(min, max) {
+	return Math.random() * (max - min) + min;
+}
+
+function borderRadiusSintaxis(a, b) {
+	const sintaxis = `${getRandomArbitrary(a, b)}% ${getRandomArbitrary(
+		a,
+		b
+	)}% ${getRandomArbitrary(a, b)}% ${getRandomArbitrary(
+		a,
+		b
+	)}% / ${getRandomArbitrary(a, b)}% ${getRandomArbitrary(
+		a,
+		b
+	)}% ${getRandomArbitrary(a, b)}% ${getRandomArbitrary(a, b)}% `;
+	return sintaxis;
+}
 
 const PokeCard = props => {
 	const { id, name, sprites, types, pokemonLength, evolvesFrom } = props;
 	return (
 		<Link to={`/pokemon-detail/${id}`} title="Más información de este Pokemon">
-			<Card
-				bg="warning"
-				text="white"
-				style={{ width: '16rem', height: '16rem', margin: '5px' }}
+			<article
+				className="pokemon-card"
+				style={{
+					borderRadius: borderRadiusSintaxis(20, 80)
+				}}
 			>
-				<Card.Img variant="top" src={sprites.front_default} alt={name} />
-				<Card.Body>
-					<Card.Title>{name}</Card.Title>
-					<Card.Text>
-						ID {id}/{pokemonLength}
-					</Card.Text>
-					{evolvesFrom ? (
-						<Card.Text>evolves from...{evolvesFrom}</Card.Text>
-					) : (
-						''
-					)}
-
-					<ul>
-						{types.map((type, index) => {
-							return <li key={index}>{type.type.name}</li>;
-						})}
-					</ul>
-				</Card.Body>
-			</Card>
+				<img src={sprites.front_default} alt={name} />
+				<h2 className="pokemon-title">{name}</h2>
+				<p>
+					ID {id}/{pokemonLength}
+				</p>
+				{evolvesFrom ? <p>evolves from...{evolvesFrom}</p> : <p />}
+				<ul>
+					{types.map((type, index) => {
+						return (
+							<li
+								className="pokemon-type__item"
+								key={index}
+								style={{
+									borderRadius: borderRadiusSintaxis(20, 80)
+								}}
+							>
+								{type.type.name}
+							</li>
+						);
+					})}
+				</ul>
+			</article>
 		</Link>
 	);
 };
