@@ -32,7 +32,6 @@ class App extends React.Component {
 		//First fetch
 		fetchPokeList().then(data => {
 			const pokeListUrls = data.results;
-			console.log(pokeListUrls.length);
 
 			const pokePromisesArr = pokeListUrls.map(pokemon => {
 				let thisPokemonInfo = {};
@@ -48,11 +47,11 @@ class App extends React.Component {
 					.then(response => {
 						const pokeHasEvolution = response.evolves_from_species;
 
-						pokeHasEvolution
-							? (thisPokemonInfo.evolvesFrom = pokeHasEvolution.name)
-							: (thisPokemonInfo.evolvesFrom = '');
-
-						return thisPokemonInfo;
+						return (thisPokemonInfo = {
+							...thisPokemonInfo,
+							//Add new key and value
+							evolvesFrom: pokeHasEvolution ? pokeHasEvolution.name : ''
+						});
 					});
 			});
 
@@ -102,7 +101,13 @@ class App extends React.Component {
 				/>
 				<Route
 					path="/pokemon-detail/:pokemonId"
-					render={routerProps => <PokemonDetailPage />}
+					render={routerProps => (
+						<PokemonDetailPage
+							isFetching={isFetching}
+							match={routerProps.match}
+							pokemonsData={pokemonsData}
+						/>
+					)}
 				/>
 			</Switch>
 		);
