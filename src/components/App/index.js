@@ -48,11 +48,11 @@ class App extends React.Component {
 					.then(response => {
 						const pokeHasEvolution = response.evolves_from_species;
 
-						pokeHasEvolution
-							? (thisPokemonInfo.evolvesFrom = pokeHasEvolution.name)
-							: (thisPokemonInfo.evolvesFrom = '');
-
-						return thisPokemonInfo;
+						return (thisPokemonInfo = {
+							...thisPokemonInfo,
+							//Add new key and value
+							evolvesFrom: pokeHasEvolution ? pokeHasEvolution.name : ''
+						});
 					});
 			});
 
