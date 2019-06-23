@@ -1,25 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { borderRadiusSintaxis } from '../../services/RandomBordersRadius';
 
 import './styles.scss';
-
-function getRandomArbitrary(min, max) {
-	return Math.random() * (max - min) + min;
-}
-
-function borderRadiusSintaxis(a, b) {
-	const sintaxis = `${getRandomArbitrary(a, b)}% ${getRandomArbitrary(
-		a,
-		b
-	)}% ${getRandomArbitrary(a, b)}% ${getRandomArbitrary(
-		a,
-		b
-	)}% / ${getRandomArbitrary(a, b)}% ${getRandomArbitrary(
-		a,
-		b
-	)}% ${getRandomArbitrary(a, b)}% ${getRandomArbitrary(a, b)}% `;
-	return sintaxis;
-}
 
 const PokeCard = props => {
 	const { id, name, sprites, types, pokemonLength, evolvesFrom } = props;

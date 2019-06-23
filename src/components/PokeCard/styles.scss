@@ -36,6 +36,12 @@
 	// animation-play-state: running, running;
 	// animation-name: morph, spin;
 
+	&:hover {
+		// transform: scale(1.1) rotate(-5deg);
+		transform: scale(1.1);
+		border-radius: 0px !important;
+	}
+
 	cursor: pointer;
 }
 
