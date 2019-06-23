@@ -1,3 +1,5 @@
+// $random: random(80);
+
 .pokemon-card {
 	background-image: linear-gradient(
 		to bottom,
@@ -24,22 +26,13 @@
 
 	box-shadow: -7px 12px 0px 2px #eaedf6;
 
-	//Animation not working
-	// animation: morph 10s linear infinite alternate,
-	// 	spin 26s linear infinite reverse;
-	// animation-duration: 10s, 26s;
-	// animation-timing-function: linear, linear;
-	// animation-delay: 0s, 0s;
-	// animation-iteration-count: infinite, infinite;
-	// animation-direction: alternate, reverse;
-	// animation-fill-mode: none, none;
-	// animation-play-state: running, running;
-	// animation-name: morph, spin;
+	transition: all ease 600ms;
 
 	&:hover {
 		// transform: scale(1.1) rotate(-5deg);
-		transform: scale(1.1);
-		border-radius: 0px !important;
+		// transform: scale(1.1);
+		// border-radius: 0px !important;
+		border-radius: 55% 45% 61% 39% / 30% 68% 32% 70% !important;
 	}
 
 	cursor: pointer;
