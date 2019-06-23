@@ -32,7 +32,6 @@ class App extends React.Component {
 		//First fetch
 		fetchPokeList().then(data => {
 			const pokeListUrls = data.results;
-			console.log(pokeListUrls.length);
 
 			const pokePromisesArr = pokeListUrls.map(pokemon => {
 				let thisPokemonInfo = {};
