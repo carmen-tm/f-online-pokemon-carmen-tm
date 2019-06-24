@@ -3,3 +3,12 @@
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
+//APPEAR - when the component is mounting
+.pokeCards-transition-appear {
+	opacity: 0;
+}
+.pokeCards-transition-appear-active {
+	opacity: 1;
+	transition: opacity 1000ms linear;
+}

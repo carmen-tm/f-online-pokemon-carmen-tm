@@ -15,6 +15,7 @@ const PokeCard = props => {
 				}}
 			>
 				<img src={sprites.front_default} alt={name} />
+
 				<h2 className="pokemon-title">{name}</h2>
 				<p>
 					ID {id}/{pokemonLength}

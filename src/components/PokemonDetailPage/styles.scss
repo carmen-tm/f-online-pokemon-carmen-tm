@@ -7,3 +7,12 @@
 		#689cad
 	);
 }
+
+//APPEAR - when the component is mounting
+.detailPage-transition-appear {
+	transform: scale(0);
+}
+.detailPage-transition-appear-active {
+	transform: scale(1);
+	transition: all 1000ms linear;
+}
