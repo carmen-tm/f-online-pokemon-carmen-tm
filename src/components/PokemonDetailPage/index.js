@@ -43,19 +43,6 @@ const PokemonDetail = props => {
 							alt={getPokemon(myPokemon).name}
 						/>
 
-						{/* All images available*/}
-						{/* <ul>
-						{Object.entries(getPokemon(myPokemon).sprites).map(item => {
-							console.log(item[0], item[1]);
-							return (
-								<div>
-								{item[0]&&item[1]}
-								<img src={item[1]} alt="" />
-								<small>{item[0]}</small>
-								</div>
-								);
-							})}
-						</ul> */}
 						<h3>Height</h3>
 						<FontAwesomeIcon icon={faRulerVertical} size="2x" color="white" />
 						<p>{getPokemon(myPokemon).height} </p>
