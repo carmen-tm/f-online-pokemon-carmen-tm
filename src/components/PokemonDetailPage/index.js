@@ -8,6 +8,7 @@ import {
 	faDice
 } from '@fortawesome/free-solid-svg-icons';
 
+import { CSSTransition } from 'react-transition-group';
 import './styles.scss';
 
 const PokemonDetail = props => {
@@ -23,54 +24,52 @@ const PokemonDetail = props => {
 			{isFetching ? (
 				<p>cargando</p>
 			) : (
-				<div className="detailPage">
-					<h2>{getPokemon(myPokemon).name} details</h2>
+				<CSSTransition
+					in={true}
+					appear={true}
+					timeout={1000}
+					classNames="detailPage-transition"
+				>
+					<div className="detailPage">
+						<h2>{getPokemon(myPokemon).name} details</h2>
 
-					<img
-						src={getPokemon(myPokemon).sprites.front_default}
-						alt={getPokemon(myPokemon).name}
-					/>
+						<img
+							src={getPokemon(myPokemon).sprites.front_default}
+							alt={getPokemon(myPokemon).name}
+						/>
 
-					<img
-						src={getPokemon(myPokemon).sprites.back_default}
-						alt={getPokemon(myPokemon).name}
-					/>
+						<img
+							src={getPokemon(myPokemon).sprites.back_default}
+							alt={getPokemon(myPokemon).name}
+						/>
 
-					{/* All images available*/}
-					{/* <ul>
-						{Object.entries(getPokemon(myPokemon).sprites).map(item => {
-							console.log(item[0], item[1]);
-							return (
-								<div>
-								{item[0]&&item[1]}
-								<img src={item[1]} alt="" />
-								<small>{item[0]}</small>
-								</div>
-								);
+						<h3>Height</h3>
+						<FontAwesomeIcon icon={faRulerVertical} size="2x" color="white" />
+						<p>{getPokemon(myPokemon).height} </p>
+
+						<h3>Weight</h3>
+						<FontAwesomeIcon icon={faWeight} size="2x" color="white" />
+						{/* <FontAwesomeIcon icon={faWeight} /> */}
+						<p>{getPokemon(myPokemon).weight} </p>
+
+						<h3>Abilities</h3>
+						<FontAwesomeIcon icon={faDice} size="2x" color="white" />
+						<ul>
+							{getPokemon(myPokemon).abilities.map((item, index) => {
+								return <li key={index}>{item.ability.name}</li>;
 							})}
-						</ul> */}
-					<h3>Height</h3>
-					<FontAwesomeIcon icon={faRulerVertical} size="2x" color="white" />
-					<p>{getPokemon(myPokemon).height} </p>
+						</ul>
 
-					<h3>Weight</h3>
-					<FontAwesomeIcon icon={faWeight} size="2x" color="white" />
-					{/* <FontAwesomeIcon icon={faWeight} /> */}
-					<p>{getPokemon(myPokemon).weight} </p>
-
-					<h3>Abilities</h3>
-					<FontAwesomeIcon icon={faDice} size="2x" color="white" />
-					<ul>
-						{getPokemon(myPokemon).abilities.map((item, index) => {
-							return <li key={index}>{item.ability.name}</li>;
-						})}
-					</ul>
-
-					<Link to="/" title="Back to Pokedesk">
-						<FontAwesomeIcon icon={faAngleDoubleLeft} size="2x" color="white" />
-						<p>HOME</p>
-					</Link>
-				</div>
+						<Link to="/" title="Back to Pokedesk">
+							<FontAwesomeIcon
+								icon={faAngleDoubleLeft}
+								size="2x"
+								color="white"
+							/>
+							<p>HOME</p>
+						</Link>
+					</div>
+				</CSSTransition>
 			)}
 		</div>
 	);

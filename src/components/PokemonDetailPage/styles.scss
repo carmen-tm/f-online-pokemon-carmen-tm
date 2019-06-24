@@ -6,4 +6,22 @@
 		#accee3,
 		#689cad
 	);
+	box-shadow: -7px 12px 0px 2px #eaedf6;
+
+	width: 550px;
+	height: 550px;
+
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+//APPEAR - when the component is mounting
+.detailPage-transition-appear {
+	transform: translate(-50%, -100%);
+}
+.detailPage-transition-appear-active {
+	transform: translate(-50%, -50%);
+	transition: all 1000ms linear;
 }
