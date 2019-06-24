@@ -49,16 +49,16 @@ const PokemonDetail = props => {
 								);
 							})}
 						</ul> */}
-					<h3>Altura</h3>
+					<h3>Height</h3>
 					<FontAwesomeIcon icon={faRulerVertical} size="2x" color="white" />
 					<p>{getPokemon(myPokemon).height} </p>
 
-					<h3>Peso</h3>
+					<h3>Weight</h3>
 					<FontAwesomeIcon icon={faWeight} size="2x" color="white" />
 					{/* <FontAwesomeIcon icon={faWeight} /> */}
 					<p>{getPokemon(myPokemon).weight} </p>
 
-					<h3>Habilidades</h3>
+					<h3>Abilities</h3>
 					<FontAwesomeIcon icon={faDice} size="2x" color="white" />
 					<ul>
 						{getPokemon(myPokemon).abilities.map((item, index) => {
@@ -68,7 +68,7 @@ const PokemonDetail = props => {
 
 					<Link to="/" title="Back to Pokedesk">
 						<FontAwesomeIcon icon={faAngleDoubleLeft} size="2x" color="white" />
-						<p>Inicio</p>
+						<p>HOME</p>
 					</Link>
 				</div>
 			)}

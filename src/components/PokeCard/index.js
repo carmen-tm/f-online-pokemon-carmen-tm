@@ -7,7 +7,7 @@ import './styles.scss';
 const PokeCard = props => {
 	const { id, name, sprites, types, pokemonLength, evolvesFrom } = props;
 	return (
-		<Link to={`/pokemon-detail/${id}`} title="Más información de este Pokemon">
+		<Link to={`/pokemon-detail/${id}`} title="Get more info about this Pokemon">
 			<article
 				className="pokemon-card"
 				style={{
