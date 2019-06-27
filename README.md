@@ -1,68 +1,60 @@
+# POKEDEX
+
+This project is a WebApp to show multiple Pokemons. They can be filtered by name and they also have a detailed page with more info about each of them.
+
+It's created as a Single-Page-Application (SPA) using React, collecting the data from the the following API service: [PokeAPI](https://pokeapi.co/).
+
+## Getting Started
+
+You don't need to clone or install this repo to play. Just click on the following link [Pokedesk](http://beta.adalab.es/f-online-pokemon-carmen-tm/) and have fun!
+
+If you want to download, clone or fork the project repository, do the following:
+
+1. Install [Node.js](https://nodejs.org/), and then:
+2. Download or clone the project repository.
+3. Install dependencies with `$ npm install`.
+4. Run the project with `$ npm start`.
+
+## Contributing
+
+You are more than welcome to contribute to this code with new ideas and/or suggestions. It's made for learning, the more it grows, the better! :)
+
+## Technology
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Dependencies
 
-In the project directory, you can run:
+- [node-sass](https://www.npmjs.com/package/node-sass)
+- [react-dom](https://www.npmjs.com/package/react-dom)
+- [prop-types](https://www.npmjs.com/package/prop-types)
 
-### `npm start`
+- [react-transition-group](https://www.google.com/search?q=npmjs+react+transition&oq=npmjs+react+transition&aqs=chrome..69i57j0l2.5045j0j7&sourceid=chrome&ie=UTF-8)
+- [@fortawesome/react-fontawesome](https://www.npmjs.com/package/@fortawesome/react-fontawesome).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## React components architecture
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```
+|src
+    |components
+        |-App
+        |-HomePage
+            |-FilterList
+                |-FilterInput
+            |-PokeList
+                |-PokeCard
+        |-PokemonDetailPage
 
-### `npm test`
+    |services
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## License
 
-### `npm run build`
+This project is licensed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Authors
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+This project is part of the Online Training provided by [Adalab](https://adalab.es/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Original idea: **Adalab** | [Github](https://github.com/Adalab) | [website](http://adalab.es/) |
+- Development and variations: **Carmen Torrecillas** | [Github](https://github.com/) | [Twitter](https://twitter.com/carmen_TM_) |

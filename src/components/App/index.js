@@ -58,7 +58,9 @@ class App extends React.Component {
 			Promise.all(pokePromisesArr).then(responses => {
 				this.setState({
 					data: {
-						pokemonsData: responses.sort((a, b) => a.id - b.id),
+						//Don't need to sort as the Promise.all already gives the responses in order when all ready
+						// pokemonsData: responses.sort((a, b) => a.id - b.id),
+						pokemonsData: responses,
 						isFetching: false
 					}
 				});
